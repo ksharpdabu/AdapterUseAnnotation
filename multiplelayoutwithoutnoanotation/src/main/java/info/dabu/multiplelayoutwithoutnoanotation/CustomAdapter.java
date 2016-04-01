@@ -153,7 +153,7 @@ public class CustomAdapter extends BaseAdapter {
 
         switch (getItemViewType(position)){
             case 0:
-
+                //虽然textview不会为null，但检查下还是必要的
                 if ( null != textView){
                     textView.setText(mList.get(position).getString());
 
@@ -161,7 +161,7 @@ public class CustomAdapter extends BaseAdapter {
                 break;
 
             case 1:
-
+                //虽然imageView不会为null，但检查下还是必要的
                 if ( null != imageView){
                     imageView.setImageResource(R.mipmap.bangalore);
 
