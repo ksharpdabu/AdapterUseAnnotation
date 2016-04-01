@@ -7,6 +7,7 @@ public class ListViewItem {
 
     private String mString;
 
+    //布局的类型
     private int mType;
 
 

@@ -67,53 +67,67 @@ public class CustomAdapter extends BaseAdapter {
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
 
-        final TextViewHolder textViewHolder;
-        final ImageViewHolder imageViewHolder;
 
 
 
-        //必须将要设置的控件单独提取出来
-        TextView textView = null;
-        ImageView imageView = null;
-
-
-        if ( convertView == null){
             switch (getItemViewType(position)){
 
                 case 0:
-
-                    convertView = LayoutInflater.from(mActivity).inflate(R.layout.type_textview,parent,false);
-
-                    textViewHolder = new TextViewHolder();
-
-                    textView = (TextView) convertView.findViewById(R.id.text);
+                    TextViewHolder textViewHolder;
 
 
-                    textViewHolder.textview = textView;
+                    if ( convertView == null){
 
 
-                    convertView.setTag(textViewHolder);
+                        convertView = LayoutInflater.from(mActivity).inflate(R.layout.type_textview,parent,false);
+
+                        textViewHolder = new TextViewHolder();
+                        textViewHolder.textview = (TextView) convertView.findViewById(R.id.text);
+
+                        convertView.setTag(textViewHolder);
+
+                    }else {
+
+                        textViewHolder = (TextViewHolder) convertView.getTag();
+                    }
 
 
-                    break;
+                    if ( null !=  textViewHolder.textview){
+                        textViewHolder.textview.setText(mList.get(position).getString());
+
+                    }
+
+
+                    return  convertView;
+
+
+
                 case 1:
 
+                    ImageViewHolder imageViewHolder;
 
 
-                    convertView = LayoutInflater.from(mActivity).inflate(R.layout.type_imageview,parent,false);
+                    if ( convertView == null){
+                        convertView = LayoutInflater.from(mActivity).inflate(R.layout.type_imageview,parent,false);
 
-                    imageViewHolder = new ImageViewHolder();
+                        imageViewHolder = new ImageViewHolder();
+                        imageViewHolder.imageView = (ImageView) convertView.findViewById(R.id.image);
 
-                    imageView= (ImageView) convertView.findViewById(R.id.image);
+                        convertView.setTag(imageViewHolder);
+                    }else {
+                        imageViewHolder = (ImageViewHolder) convertView.getTag();
+                    }
 
 
-                    imageViewHolder.imageView = imageView;
+                    if ( null != imageViewHolder.imageView){
+                        imageViewHolder.imageView.setImageResource(R.mipmap.bangalore);
+                    }
 
 
 
-                    convertView.setTag(imageViewHolder);
+                    return  convertView;
 
-                    break;
+
 
 
                 default:
@@ -123,56 +137,7 @@ public class CustomAdapter extends BaseAdapter {
             }
 
 
-
-
-        }else {
-
-
-
-            switch ( getItemViewType(position)){
-                case 0:
-
-                    textViewHolder = (TextViewHolder) convertView.getTag();
-
-
-                    textView = textViewHolder.textview;
-
-                    break;
-                case 1:
-                    imageViewHolder = (ImageViewHolder) convertView.getTag();
-
-
-                    imageView = imageViewHolder.imageView;
-                    break;
-
-            }
-
-        }
-
-
-
-        switch (getItemViewType(position)){
-            case 0:
-                //虽然textview不会为null，但检查下还是必要的
-                if ( null != textView){
-                    textView.setText(mList.get(position).getString());
-
-                }
-                break;
-
-            case 1:
-                //虽然imageView不会为null，但检查下还是必要的
-                if ( null != imageView){
-                    imageView.setImageResource(R.mipmap.bangalore);
-
-                }
-                break;
-        }
-
-
         return convertView;
-
-
     }
 
 
