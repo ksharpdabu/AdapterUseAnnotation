@@ -11,7 +11,7 @@ import info.dabu.adapteruseannotation.R;
 import info.dabu.adapteruseannotation.annotation.DelegateAdapterType;
 
 /**
- * 含TextView的
+ * 含TextView的布局
  */
 
 

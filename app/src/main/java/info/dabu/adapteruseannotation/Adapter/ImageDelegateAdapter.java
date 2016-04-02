@@ -10,7 +10,7 @@ import info.dabu.adapteruseannotation.R;
 import info.dabu.adapteruseannotation.annotation.DelegateAdapterType;
 
 /**
- * 含ImageView的
+ * 含ImageView的布局
  */
 @DelegateAdapterType(itemType = 1)
 public class ImageDelegateAdapter implements DelegateAdapter {
