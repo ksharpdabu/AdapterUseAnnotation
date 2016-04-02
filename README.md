@@ -2,6 +2,10 @@
 使用注解来实现ListView的多种布局，Making a Multiple View Types Adapter With Annotations
 
 
+#效果
+
+[cmd-markdown-logo](https://www.zybuluo.com/static/img/logo.png)
+
 
 见博客文章
 > *[《android中用注解的方式实现ListView多种布局设置》](http://www.dabu.info/android-use-annotation-multiple-layout-listview.html)
