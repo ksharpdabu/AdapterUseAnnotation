@@ -1,13 +1,24 @@
-package info.dabu.adapteruseannotation.adapter;
+package info.dabu.adapteruseannotation;
 
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 
+import info.dabu.adapteruseannotation.annotation.DelegateAdapters;
+
 /**
- * Created by AlexY on 2016/4/1.
+ * 自定义的适配器
  */
-public class BlueAdapter extends BaseAdapter {
+
+@DelegateAdapters(  delegateAdapters = {
+        TextDelegateAdapter.class,
+        ImageDelegateAdapter.class
+
+})
+
+
+public class CustomeAdapter extends BaseAdapter {
+
 
 
 
