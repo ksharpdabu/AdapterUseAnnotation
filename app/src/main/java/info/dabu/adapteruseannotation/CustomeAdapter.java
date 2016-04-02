@@ -4,6 +4,8 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 
+import info.dabu.adapteruseannotation.Adapter.ImageDelegateAdapter;
+import info.dabu.adapteruseannotation.Adapter.TextDelegateAdapter;
 import info.dabu.adapteruseannotation.annotation.DelegateAdapters;
 
 /**
@@ -15,8 +17,6 @@ import info.dabu.adapteruseannotation.annotation.DelegateAdapters;
         ImageDelegateAdapter.class
 
 })
-
-
 public class CustomeAdapter extends BaseAdapter {
 
 
