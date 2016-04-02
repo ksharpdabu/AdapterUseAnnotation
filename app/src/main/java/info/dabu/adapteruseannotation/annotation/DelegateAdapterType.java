@@ -6,7 +6,7 @@ import java.lang.annotation.RetentionPolicy;
 import java.lang.annotation.Target;
 
 /**
- *适配器的类型注解
+ *布局的类型的注解类
  */
 @Target(ElementType.TYPE)
 @Retention(RetentionPolicy.RUNTIME)
