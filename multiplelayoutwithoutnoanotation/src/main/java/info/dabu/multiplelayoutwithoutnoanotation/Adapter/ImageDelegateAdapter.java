@@ -10,7 +10,7 @@ import info.dabu.multiplelayoutwithoutnoanotation.R;
 
 
 /**
- * 含ImageView的
+ * 含ImageView的布局
  */
 
 public class ImageDelegateAdapter implements DelegateAdapter {
