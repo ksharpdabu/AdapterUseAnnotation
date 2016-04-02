@@ -88,7 +88,7 @@ public class CustomeAdapter extends BaseAdapter {
     }
 
 
-
+    //通过反射，初始化的mDelegateAdapterSparseArray，
     private void initDelegates(){
         mDelegateAdapterSparseArray = new LongSparseArray<DelegateAdapter>();
 
