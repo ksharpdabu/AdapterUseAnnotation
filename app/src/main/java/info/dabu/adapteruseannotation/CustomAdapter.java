@@ -61,12 +61,13 @@ public class CustomAdapter extends BaseAdapter {
         return 0;
     }
 
-
+    //总共有几种布局
     @Override
     public int getViewTypeCount() {
         return mDelegateAdapterSparseArray.size();
     }
 
+    //获取当前item的需要的view的种类
     @Override
     public int getItemViewType(int position) {
         return mList.get(position).getType();
@@ -92,7 +93,7 @@ public class CustomAdapter extends BaseAdapter {
     }
 
 
-    //通过反射，初始化的mDelegateAdapterSparseArray，
+    //通过反射，初始化的mDelegateAdapterSparseArray
     private void initDelegates(){
         mDelegateAdapterSparseArray = new LongSparseArray<DelegateAdapter>();
 
