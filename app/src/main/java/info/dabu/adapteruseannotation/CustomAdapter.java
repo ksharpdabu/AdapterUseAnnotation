@@ -23,7 +23,7 @@ import info.dabu.adapteruseannotation.annotation.DelegateAdapters;
         ImageDelegateAdapter.class
 
 })
-public class CustomeAdapter extends BaseAdapter {
+public class CustomAdapter extends BaseAdapter {
 
     private LongSparseArray<DelegateAdapter> mDelegateAdapterSparseArray;
 
@@ -37,7 +37,7 @@ public class CustomeAdapter extends BaseAdapter {
     private List<ListViewItem> mList;
 
 
-    public CustomeAdapter(List<ListViewItem> list, Activity activity) {
+    public CustomAdapter( Activity activity,List<ListViewItem> list) {
         mList = list;
         mActivity = activity;
 

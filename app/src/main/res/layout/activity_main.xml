@@ -5,14 +5,12 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
 
-    tools:context="info.dabu.adapteruseannotation.MainActivity">
 
 
+    tools:context="info.dabu.multiplelayoutwithoutnoanotation.MainActivity">
 
     <ListView
-        android:id="@+id/LV"
+        android:id="@+id/Lv"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
-
-    </ListView>
+        android:layout_height="match_parent"></ListView>
 </LinearLayout>
