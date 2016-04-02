@@ -4,7 +4,7 @@
 
 #效果
 
-[cmd-markdown-logo](https://www.zybuluo.com/static/img/logo.png)
+[截图](https://github.com/ksharpdabu/AdapterUseAnnotation/blob/master/ScreenImage/4539218.png)
 
 
 见博客文章
