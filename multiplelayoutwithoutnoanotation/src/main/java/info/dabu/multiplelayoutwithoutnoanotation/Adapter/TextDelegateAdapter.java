@@ -20,7 +20,6 @@ public class TextDelegateAdapter implements DelegateAdapter {
 
 
 
-
     @Override
     public View getView(int position, View convertView, ViewGroup parent, LayoutInflater inflater, Object item) {
 
