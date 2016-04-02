@@ -40,7 +40,7 @@ public class CustomAdapter extends BaseAdapter {
     public CustomAdapter( Activity activity,List<ListViewItem> list) {
         mList = list;
         mActivity = activity;
-
+        mLayoutInflater = LayoutInflater.from(mActivity);
 
         initDelegates();
     }
