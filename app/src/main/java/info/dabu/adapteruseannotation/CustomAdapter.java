@@ -2,6 +2,7 @@ package info.dabu.adapteruseannotation;
 
 import android.app.Activity;
 import android.support.v4.util.LongSparseArray;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -79,7 +80,9 @@ public class CustomAdapter extends BaseAdapter {
 
         DelegateAdapter delegateAdapter  = mDelegateAdapterSparseArray.get(itemtype);
 
-        if (delegateAdapter != null){
+        if (delegateAdapter == null){
+
+            Log.e("itemtype",""+itemtype);
             throw new RuntimeException("Unknown type "+itemtype+" called");
         }
 
