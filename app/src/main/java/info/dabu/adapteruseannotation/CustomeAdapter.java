@@ -83,6 +83,7 @@ public class CustomeAdapter extends BaseAdapter {
             throw new RuntimeException("Unknown type "+itemtype+" called");
         }
 
+
         //返回每种适配器对应的View
         return mDelegateAdapterSparseArray.get(itemtype).getView(position, convertView, parent, mLayoutInflater, getItem(position));
     }
