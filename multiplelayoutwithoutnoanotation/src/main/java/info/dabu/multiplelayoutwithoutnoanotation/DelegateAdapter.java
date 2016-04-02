@@ -1,4 +1,4 @@
-package info.dabu.adapteruseannotation;
+package info.dabu.multiplelayoutwithoutnoanotation;
 
 import android.view.LayoutInflater;
 import android.view.View;

@@ -1,6 +1,7 @@
 package info.dabu.multiplelayoutwithoutnoanotation;
 
 import android.app.Activity;
+import android.support.v4.util.LongSparseArray;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -10,6 +11,9 @@ import android.widget.TextView;
 
 import java.util.List;
 
+import info.dabu.multiplelayoutwithoutnoanotation.Adapter.ImageDelegateAdapter;
+import info.dabu.multiplelayoutwithoutnoanotation.Adapter.TextDelegateAdapter;
+
 /**
  * Created by AlexY on 2016/4/1.
  *
@@ -18,11 +22,18 @@ import java.util.List;
  */
 public class CustomAdapter extends BaseAdapter {
 
+    private LongSparseArray<DelegateAdapter> mDelegateAdapterSparseArray;
+
+
+
 
     private Activity mActivity;
 
 
     private List<ListViewItem > mList;
+
+
+    private LayoutInflater mLayoutInflater;
 
 
     public CustomAdapter() {
@@ -32,6 +43,18 @@ public class CustomAdapter extends BaseAdapter {
     public CustomAdapter(Activity activity, List<ListViewItem> list) {
         mActivity = activity;
         mList = list;
+
+        mLayoutInflater = LayoutInflater.from(mActivity);
+
+        mDelegateAdapterSparseArray = new LongSparseArray<>();
+
+        DelegateAdapter delegateAdapter0 = (DelegateAdapter) new TextDelegateAdapter();
+        mDelegateAdapterSparseArray.put(0,delegateAdapter0);
+
+        DelegateAdapter delegateAdapter1 = (DelegateAdapter) new ImageDelegateAdapter();
+        mDelegateAdapterSparseArray.put(1,delegateAdapter1);
+
+
     }
 
 
@@ -55,7 +78,7 @@ public class CustomAdapter extends BaseAdapter {
 //    总共有几种布局
     @Override
     public int getViewTypeCount() {
-        return 2;
+        return mDelegateAdapterSparseArray.size();
     }
 
 //    获取Item的View的类型
@@ -68,73 +91,26 @@ public class CustomAdapter extends BaseAdapter {
     public View getView(int position, View convertView, ViewGroup parent) {
 
 
+        int itemType = getItemViewType(position);
+
+        switch (itemType){
+
+            case 0:
+
+                return   mDelegateAdapterSparseArray.get(itemType).getView(position,convertView,parent,mLayoutInflater,getItem(position));
 
 
-            switch (getItemViewType(position)){
+            case 1:
 
-                case 0:
-                    TextViewHolder textViewHolder;
-
-
-                    if ( convertView == null){
+                return mDelegateAdapterSparseArray.get(itemType).getView(position,convertView,parent,mLayoutInflater,getItem(position));
 
 
-                        convertView = LayoutInflater.from(mActivity).inflate(R.layout.type_textview,parent,false);
+              default:
 
-                        textViewHolder = new TextViewHolder();
-                        textViewHolder.textview = (TextView) convertView.findViewById(R.id.text);
-
-                        convertView.setTag(textViewHolder);
-
-                    }else {
-
-                        textViewHolder = (TextViewHolder) convertView.getTag();
-                    }
+                  break;
+        }
 
 
-                    if ( null !=  textViewHolder.textview){
-                        textViewHolder.textview.setText(mList.get(position).getString());
-
-                    }
-
-
-                    return  convertView;
-
-
-
-                case 1:
-
-                    ImageViewHolder imageViewHolder;
-
-
-                    if ( convertView == null){
-                        convertView = LayoutInflater.from(mActivity).inflate(R.layout.type_imageview,parent,false);
-
-                        imageViewHolder = new ImageViewHolder();
-                        imageViewHolder.imageView = (ImageView) convertView.findViewById(R.id.image);
-
-                        convertView.setTag(imageViewHolder);
-                    }else {
-                        imageViewHolder = (ImageViewHolder) convertView.getTag();
-                    }
-
-
-                    if ( null != imageViewHolder.imageView){
-                        imageViewHolder.imageView.setImageResource(R.mipmap.bangalore);
-                    }
-
-
-
-                    return  convertView;
-
-
-
-
-                default:
-
-                    break;
-
-            }
 
 
         return convertView;
