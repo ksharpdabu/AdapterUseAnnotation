@@ -6,8 +6,6 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
-import android.widget.ImageView;
-import android.widget.TextView;
 
 import java.util.List;
 
@@ -48,10 +46,10 @@ public class CustomAdapter extends BaseAdapter {
 
         mDelegateAdapterSparseArray = new LongSparseArray<>();
 
-        DelegateAdapter delegateAdapter0 = (DelegateAdapter) new TextDelegateAdapter();
+        DelegateAdapter delegateAdapter0 =   new TextDelegateAdapter();
         mDelegateAdapterSparseArray.put(0,delegateAdapter0);
 
-        DelegateAdapter delegateAdapter1 = (DelegateAdapter) new ImageDelegateAdapter();
+        DelegateAdapter delegateAdapter1 =  new ImageDelegateAdapter();
         mDelegateAdapterSparseArray.put(1,delegateAdapter1);
 
 
@@ -115,24 +113,6 @@ public class CustomAdapter extends BaseAdapter {
 
         return convertView;
     }
-
-
-
-
-    //用来优化含TextView的布局
-    public class TextViewHolder {
-        TextView  textview;
-
-
-    }
-
-
-//    用来优化含ImageView的布局
-    public class ImageViewHolder {
-        ImageView imageView;
-
-    }
-
 
 
 
