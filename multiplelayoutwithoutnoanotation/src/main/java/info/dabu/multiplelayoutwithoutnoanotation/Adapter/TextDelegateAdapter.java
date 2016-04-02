@@ -58,9 +58,6 @@ public class TextDelegateAdapter implements DelegateAdapter {
 
 
 
-
-
-
     //用来优化含TextView的布局
     public class TextViewHolder {
         TextView textview;
